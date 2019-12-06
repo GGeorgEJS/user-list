@@ -1,0 +1,27 @@
+.content {
+
+
+  .content__list {
+    background: #272727;
+    width: 100rem;
+
+    .border-top {
+      border-top: 1px solid #333333;
+    }
+
+    .content__item {
+      padding: 1rem 2rem;
+      color: white;
+      font-weight: bold;
+
+      .content__field {
+        display: inline-block;
+        width: 31rem;
+      }
+    }
+
+    .color-dark {
+      color: #4c4c4c;
+    }
+  }
+}

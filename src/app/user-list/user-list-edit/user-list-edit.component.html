@@ -1,0 +1,38 @@
+<div class="backdrop"></div>
+<div class="alert-box">
+  <div class="window">
+    <h3 class="window__title">{{editMode ? "Edit user" : "Create user"}}</h3>
+    <div class="window__form">
+      <form [formGroup]="dataGroup" (ngSubmit)="onSubmit(dataGroup)">
+        <div class="window__fields">
+          <div class="window__field">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="window__field-text" name="name" formControlName="name"
+              [ngClass]="{'is-invalid': submitted && dataGroup.get('name').invalid}">
+            <span *ngIf=" submitted && dataGroup.get('name').invalid" class="help-block">This field is
+              required!</span>
+          </div>
+          <div class="window__field">
+            <label for="amount">Email</label>
+            <input type="text" id="email" class="window__field-text" formControlName="email" name="email"
+              [ngClass]="{'is-invalid': submitted && dataGroup.get('email').invalid}">
+            <span *ngIf="submitted && dataGroup.get('email').invalid" class="help-block">Please
+              enter a valid email!</span>
+          </div>
+          <div class="window__field">
+            <label for="amount">City (Optional)</label>
+            <input type="text" id="city" class="window__field-text" formControlName="city" name="city">
+          </div>
+        </div>
+        <div class="window__buttons" [style.justify-content]="editMode ? 'space-between' : 'flex-end'">
+          <button class="btn btn-red btn-size-default" type="button" (click)="onDelete()"
+            *ngIf="editMode">Delete</button>
+          <div class="window__buttons-default ">
+            <button class="btn btn-default btn-size-default" type="button" (click)="onCancle()">Cancel</button>
+            <button class="btn btn-yellow btn-size-default" type="submit">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

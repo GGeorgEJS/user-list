@@ -1,0 +1,20 @@
+<ng-template appPlaceholder></ng-template>
+
+
+<div class="content">
+  <button class="btn btn-yellow btn-large" type="button" (click)="onEdit()"
+    [style.visibility]="edit ? 'hidden' : 'visible'">Create user</button>
+
+  <ul class="content__list">
+    <li class="content__item color-dark">
+      <span class="content__field">Name</span><span class="content__field">Email</span><span
+        class="content__field">City</span>
+    </li>
+    <li class="content__item border-top" *ngFor="let user of users; let i = index">
+      <span class="content__field">{{user.name}}</span>
+      <span class="content__field">{{user.email}}</span>
+      <span class="content__field">{{user.city}}</span>
+      <button type="button" class="btn btn-default" (click)="onEdit(user, i)">EDIT</button>
+    </li>
+  </ul>
+</div>
